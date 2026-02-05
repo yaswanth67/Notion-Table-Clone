@@ -1,0 +1,487 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #ffffff;
+  color: #37352f;
+}
+
+.notion-container {
+  max-width: 100%;
+  padding: 0;
+  background: #ffffff;
+}
+
+.notion-header {
+  padding: 24px 96px 0 96px;
+  background: #ffffff;
+}
+
+.notion-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.notion-title h1 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #37352f;
+  line-height: 1.2;
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  border-radius: 3px;
+  cursor: pointer;
+  color: rgba(55, 53, 47, 0.35);
+  transition: background 20ms ease-in;
+}
+
+.icon-btn:hover {
+  background: rgba(55, 53, 47, 0.08);
+  color: rgba(55, 53, 47, 0.65);
+}
+
+.notion-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0 12px 0;
+  border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.toolbar-left,
+.toolbar-right {
+  display: flex;
+  gap: 6px;
+}
+
+.toolbar-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(55, 53, 47, 0.65);
+  background: transparent;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 20ms ease-in;
+  position: relative;
+}
+
+.toolbar-btn:hover {
+  background: rgba(55, 53, 47, 0.08);
+}
+
+.table-wrapper {
+  padding: 0 96px;
+  overflow-x: auto;
+  overflow-y: visible;
+}
+
+.notion-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 8px;
+}
+
+.notion-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #ffffff;
+}
+
+.notion-table th {
+  background: #f7f6f3;
+  border-right: 1px solid rgba(55, 53, 47, 0.09);
+  border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+  padding: 0;
+  font-weight: 500;
+  font-size: 14px;
+  color: rgba(55, 53, 47, 0.65);
+  text-align: left;
+  height: 33px;
+  position: relative;
+  user-select: none;
+}
+
+.notion-table th:first-child {
+  border-left: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.notion-table th.hovered {
+  background: rgba(55, 53, 47, 0.08);
+}
+
+.checkbox-column {
+  width: 36px;
+  min-width: 36px;
+  padding: 0 8px !important;
+  text-align: center;
+}
+
+.checkbox-column input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #2383e2;
+}
+
+.column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  height: 100%;
+}
+
+.column-name {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(55, 53, 47, 0.65);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.column-menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: rgba(55, 53, 47, 0.35);
+  border-radius: 3px;
+  opacity: 0;
+  transition: opacity 100ms ease-in, background 20ms ease-in;
+}
+
+.notion-table th:hover .column-menu-btn {
+  opacity: 1;
+}
+
+.column-menu-btn:hover {
+  background: rgba(55, 53, 47, 0.08);
+}
+
+.column-resize-handle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  cursor: col-resize;
+  z-index: 3;
+}
+
+.column-resize-handle:hover {
+  background: #2383e2;
+}
+
+.add-column-header {
+  width: 50px;
+  min-width: 50px;
+  background: #f7f6f3;
+  border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+  border-right: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.add-column-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: rgba(55, 53, 47, 0.35);
+  transition: background 20ms ease-in;
+}
+
+.add-column-btn:hover {
+  background: rgba(55, 53, 47, 0.08);
+  color: rgba(55, 53, 47, 0.65);
+}
+
+.notion-table tbody tr {
+  transition: background 20ms ease-in;
+}
+
+.notion-table tbody tr:hover,
+.notion-table tbody tr.hovered {
+  background: rgba(55, 53, 47, 0.03);
+}
+
+.notion-table td {
+  border-right: 1px solid rgba(55, 53, 47, 0.09);
+  border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+  padding: 0;
+  height: 33px;
+  position: relative;
+}
+
+.notion-table td:first-child {
+  border-left: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.table-cell {
+  height: 100%;
+}
+
+.cell-text {
+  padding: 6px 8px;
+  font-size: 14px;
+  color: #37352f;
+  cursor: text;
+  min-height: 33px;
+  display: flex;
+  align-items: center;
+}
+
+.cell-input {
+  width: 100%;
+  height: 100%;
+  padding: 6px 8px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #37352f;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.empty-cell {
+  color: rgba(55, 53, 47, 0.375);
+}
+
+.select-cell,
+.multi-select-cell {
+  padding: 4px 8px;
+  min-height: 33px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.select-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #37352f;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tag-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border: none;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  cursor: pointer;
+  color: #37352f;
+  opacity: 0.6;
+  transition: opacity 100ms ease-in;
+  padding: 0;
+  margin-left: 2px;
+}
+
+.tag-remove:hover {
+  opacity: 1;
+}
+
+.date-cell {
+  color: rgba(55, 53, 47, 0.65);
+}
+
+.checkbox-cell {
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.checkbox-cell input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #2383e2;
+}
+
+.row-actions {
+  width: 50px;
+  min-width: 50px;
+  text-align: center;
+}
+
+.select-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 100;
+  min-width: 180px;
+  max-width: 300px;
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px;
+  padding: 4px;
+  margin-top: 4px;
+  animation: menuSlideIn 100ms ease-out;
+}
+
+@keyframes menuSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.select-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 20ms ease-in;
+}
+
+.select-option:hover {
+  background: rgba(55, 53, 47, 0.08);
+}
+
+.select-option.selected {
+  background: rgba(35, 131, 226, 0.08);
+}
+
+.select-option input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #2383e2;
+}
+
+.property-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 100;
+  min-width: 200px;
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px;
+  padding: 4px;
+  margin-top: 4px;
+  animation: menuSlideIn 100ms ease-out;
+}
+
+.menu-header {
+  padding: 6px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(55, 53, 47, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.property-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #37352f;
+  transition: background 20ms ease-in;
+}
+
+.property-option:hover {
+  background: rgba(55, 53, 47, 0.08);
+}
+
+.property-option svg {
+  color: rgba(55, 53, 47, 0.45);
+}
+
+.add-row-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 2px 96px 32px 96px;
+  padding: 4px 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(55, 53, 47, 0.45);
+  background: transparent;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 20ms ease-in;
+  width: fit-content;
+}
+
+.add-row-btn:hover {
+  background: rgba(55, 53, 47, 0.08);
+  color: rgba(55, 53, 47, 0.65);
+}
+
+/* Scrollbar styling */
+.table-wrapper::-webkit-scrollbar {
+  height: 12px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(55, 53, 47, 0.16);
+  border-radius: 6px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(55, 53, 47, 0.26);
+}
